@@ -1,314 +1,167 @@
 <!DOCTYPE html>
 <html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>SOLVE</title>
+        <link rel="stylesheet" href="css/sgca.css" />
+        <script type="text/javascript" src="js/jquerymin.js"></script>
+        <script type="text/javascript" src="js/sgca.js"></script>
+        <script>
+            var simsubscreennum = 0;
+            var temp = 0;
+            var lnt = 0;
+            var sample = 1;
+            var n;
+            var sampletype = 1;
+        </script>
+        <style>
+        </style>
+    </head>
+    <body style="margin:0; font-family:verdana; font-size:14px;">
 
-<head>
-	<meta charset="UTF-8">
+        <!--Simulation Screen start		-->
+        <div id="simscreen">
 
-	<title>SOLVE</title>
-	<link rel="stylesheet" href="css/sgca.css" />
-	<script type="text/javascript" src="js/jquerymin.js"></script>
-	<script type="text/javascript" src="js/sgca.js"></script>
+            <!--Title of Simulation		-->
+            <div id="title">
+                <h4>PERCOLATION RATE TEST</h4>
+            </div>
 
-	<script>
-		var simsubscreennum = 0;
-		var temp = 0;
-		var lnt = 0;
-		var n;
-	</script>
-
-
-</head>
-
-<body style="margin:0; font-family:verdana; font-size:14px;">
-	<!--Simulation Screen start		-->
-	<div id="simscreen">
-
-		<!--Title of Simulation		-->
-		<div id="title">
-			<h3>GEORESISTIVITY TEST</h3>
-		</div>
-
-		<!--SubScreen Home	-->
-		<div class="simsubscreen" id="canvas0">
-			<h4 class="incanvas" style="font-family:verdana; ">Objective</h4>
-			<p class="incanvas" style="font-family:verdana; font-size:15px;">To obtain the resistivity of the
-				ground using Schlumberger Array with the help of Georesistivity meter.</p></br>
-			<h4 class="incanvas" style="font-family:verdana; ">Apparatus used:</h4>
-			<p class="incanvas" style="font-family:verdana; font-size:14px;">Georesistivity meter, Clips and wire,
-				Battery, Electrodes and Hammer.</p>
-				<span class="tooltip"
-				style="border-bottom:1px dotted ; color:red; position:absolute; left:5px;top:140px;"><strong>Description</strong>
-				<span class="tooltiptext" style="text-align:justify;left:90px;top:6px;"><strong style="color:red;">Georesistivity Test:</strong> The electrical resistivity test is useful for studying the existence of subsurface structures by observing the differences in their resistance to electrical current flow and hence determining the presence of groundwater.</span></span>
-			<img id="" style="position: absolute; left: 290px; top: 350px; width:350px;height:150px;"
+            <!--SubScreen Home	-->
+            <div class="simsubscreen" id="canvas0">
+                <h4 class="incanvas" style="font-family:verdana; ">Objective</h4>
+                <p class="incanvas" style="font-family:verdana; font-size:15px;">To find the percolation rate of the soil samples.</p>
+                </br>
+                <h4 class="incanvas" style="font-family:verdana; ">Apparatus used:</h4>
+                <p class="incanvas" style="font-family:verdana; font-size:14px;">Funnel, Sand, Silt, Clay, Stopwatch, Graduated cylinder, Measuring Flask, Beaker, Water, Funnel stand.</p>
+                <br>
+                <span class="descont" style="border-bottom:1px dotted ; color:red; position:absolute; top:120px; z-index: 500;">Description
+                <span  class="desctext" style=" font-size:16px;">
+                <strong>Percolation Rate Test</strong> :  Is used to determine the water absorption capacity of the soil and plays a major role to determine filter field design and site suitability for an on-site wastewater treatment facility.  <br><br>
+                </span></span>
+                <img src="images/human.png" alt="Human" style="position:absolute; margin-left:20px;margin-top:40px;">
+                <img id="" style="position: absolute; left: 290px; top: 350px; width:350px;height:150px;"
 				title="table" src="Images/table.png">
-			<img id=""
-				style="position: absolute; left: 350px; top: 285px; width:50px; height:130px;transform: rotate(90deg);"
-				title="Electrode" src="Images/pin1.png" />
-			<img id="" title="Resistivity Meter" style="position: absolute; left: 470px; top: 325px; width:100px;" title="Resistivity Meter"
-				src="Images/rs11.png" />
-			<img style="position:absolute; left:20px; top:160px;" title="" src="Images/human.png" />
-		</div>
+                <img id="" style="position: absolute; left: 330px; top: 345px; width:35px; transform: rotate(90deg);" title="Funnel" src="Images/funnel.png">
+                <img title="Beaker" style="position: absolute; left: 490px; top: 315px; width:35px;" title="beaker" src="Images/beaker1.png">
+                <img title="Stopwatch" style="position: absolute; left: 555px; top: 335px; width:40px;" title="beaker" src="Images/swh1.png">
+			    <img id="Stand" title="Stand" style="position: absolute; left: 410px; top: 245px; width:65px;" src="Images/stand.png">
+            </div>
 
-		<!--Step1	-->
-		<div class="simsubscreen" id="canvas1" style="visibility:hidden">
-			<strong id="titlestep" class="incanvas">STEP </strong>
-			<span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>
-			<p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">connect the potential
-				electrode to the positive side of the resistivity meter.</p>
-				<div style="position:absolute;left:30px;top:5px;">
-			<p id="x" style="position: absolute;left:650px;top:-15px;font-size:18px;visibility: hidden;"><strong>Trial
-					1</strong></p>
-			<img id="z6" style="position: absolute;width:585px; height:180px;left: 32px; top: 33px;" src="Images/soil.png">
-			<img id="a6" style="position: absolute;width:50px; left: 405px; top: 130px;visibility: hidden;" src="Images/pin11.png" />
-			<img id="a66" style="position: absolute;width:50px; left: 405px; top: 130px;visibility:hidden;" src="Images/pin11.png" />
-			<img id="a666" style="position: absolute;width:50px; left: 405px; top: 130px;visibility:hidden;" src="Images/pin11.png" />
-			<img id="z7" style="position: absolute;width:790px; height:280px;left: -85px; top: 210px;" src="Images/soil.png">
-			<img id="a23"
-				style="position: absolute;left: 411px; width:24px;top: 191px;transform-origin: -30% 63%;"
-				src="Images/wire2.svg" />
-			<img id="a32"
-				style="position: absolute;left: 409px; width:22px;top: 197px;transform-origin: -30% 63%;transform:rotate(7deg);  visibility:hidden;"
-				src="Images/wire2.svg" />
-			<img id="a2" title="Resistivity Meter" style="position: absolute; width:180px;left: 230px; top: 300px;"
-				src="Images/rs11.png" />
-			<img id="a22" style="position: absolute;left: 278px; top: 230px;"
-				src="Images/wire1.svg" />
-			<img id="a5" title="Hammer" style="position: absolute;width:75px; left: 377px; top: 107px;transform:rotate(-5deg);"
-				src="Images/Hammer11.png" />
-			<img id="a55" title="Hammer" style="position: absolute;width:75px; left: 377px; top: 107px;transform:rotate(-5deg);visibility:hidden;"
-				src="Images/Hammer11.png" />
-			<img id="a555" title="Hammer" style="position: absolute;width:75px; left: 377px; top: 107px;transform:rotate(-5deg);visibility:hidden;"
-				src="Images/Hammer11.png" />
-				</div>
-		</div>
+            <div class="simsubscreen" id="canvas0.5" style="visibility: hidden;">
+                <strong id="titlestep" class="incanvas">STEP </strong>
+                <span class="circlebg" id="stepnumber">&nbsp;1&nbsp;</span>
+                <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Take a funnel and put it on a funnel stand.</p>
+                <br>
+                <span style="position: absolute; top:150px; left: 100px">
+                <input type="radio" id="selectp3" name="sampletype" value="1" checked>
+                <label  for="selectp3">Sandy soil Sample</label>
+                </span>
+                <span style="position: absolute; top:150px; left: 420px">
+                <input type="radio" id="selectp12" name="sampletype" value="2">
+                <label  for="selectp12">Silty soil Sample</label>
+                </span>
+                <img  src="images/sandysoil.svg" title="Soil" height="50px" style="position: absolute; top:200px; left:95px;z-index: -1;" />
+                <img  src="images/sandysoil.svg" title="Soil" height="50px" style="position: absolute; top:200px; left:420px;z-index: -1;" />
+            </div>
 
-		<div class="simsubscreen" id="canvas2" style="visibility:hidden">
-			<strong id="titlestep" class="incanvas">STEP </strong>
-			<span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>
-			<p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">connect the potential
-				electrode to the negative side of the resistivity meter.</p>
-				<div style="position:absolute;left:30px;top:5px;">
+            <!--Step2	-->
+            <div class="simsubscreen" id="canvas1" style="visibility:hidden">
+                <strong id="titlestep" class="incanvas">STEP </strong>
+                <span class="circlebg" id="stepnumber">&nbsp;2&nbsp;</span>
+                <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Take a funnel and put it on a funnel stand.</p>
+                <br>
+                <img id="stand" title="Stand" src="Images/stand.png" style="position:absolute;top:270px;left:120px"   width="100px">
+                <img id="hand" title="hand" src="Images/hand.png" style="position:absolute;width:290px;top:180px;left:300px"   >
+                <img id="standf" title="Stand" src="Images/standf.png" style="position:absolute;top:275px;left:120px;visibility:hidden;"   width="115px">
+            </div>
 
-			<img id="z6" style="position: absolute;width:585px; height:180px;left: 32px; top: 33px;" src="Images/soil.png">
-				
-			<img id="a6" style="position: absolute;width:50px; left: 405px; top: 140px;" src="Images/pin11.png" />
-			<img id="b6" style="position: absolute;width:50px; left: 170px; top: 130px;visibility:hidden" src="Images/pin11.png" />
-			<img id="b66" style="position: absolute;width:50px; left: 170px; top: 130px;visibility:hidden" src="Images/pin11.png" />
-			<img id="b666" style="position: absolute;width:50px; left: 170px; top: 130px;visibility:hidden" src="Images/pin11.png" />
+            <!--Step3	-->
+            <div class="simsubscreen" id="canvas2" style="visibility:hidden">
+                <strong id="titlestep" class="incanvas">STEP </strong>
+                <span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
+                <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Take the soil sample and put it in the funnel</p>
+                <img id="standf" title="soil" src="Images/standf.png" style="position:absolute;top:275px;left:120px;"   width="115px">
+                <img id="setup10" src="Images/setup1.png" style="position:absolute;top:275px;left:120px;visibility:hidden"   width="115px">
 
-			<img id="z7" style="position: absolute;width:790px; height:280px;left: -85px; top: 210px;" src="Images/soil.png">
-			<!-- <img id="b23"
-				style="position: absolute;left: 408px; width:24px;top: 193px;transform-origin: -30% 63%;transform:rotate(7deg)"
-				src="Images/wire2.svg" /> -->
-				<img id="a32"
-				style="position: absolute;left: 409px; width:22px;top: 197px;transform-origin: -30% 63%;transform:rotate(7deg);"
-				src="Images/wire2.svg" />
-			<img id="a2" title="Resistivity Meter" style="position: absolute; width:180px;left: 230px; top: 300px;" src="Images/rs11.png" />
-			<img id="a22" style="position: absolute;left: 277px; top: 230.5px;" src="Images/wire1.svg" />
-			<img id="b24"
-				style="position: absolute;left: 169px; width:24.5px;top: 184px;transform-origin: -20% 87%;transform:rotate(8deg)"
-				src="Images/wire2.svg" />
-			<img id="b42" style="position: absolute; left: 167px; width: 22px; top: 193px; transform-origin: -20% 87%; transform: rotate(15deg); visibility: hidden;" src="Images/wire2.svg">
+                <img id="sandysoil" title="soil" src="images/sandysoil.svg" height="50px" style="position: absolute; top:420px; left:320px;z-index: -1;" />
+                <img id="sph" title="Hand" src="images/sph.svg"  style="position: absolute; top:150px; left:400px;" />
+                <img id="sph2" title="Hand" src="images/sph2.svg"  style="position: absolute;  top:290px; left:380px;visibility:hidden" />
+            </div>
 
-			<img id="b25" style="position: absolute;left: 166px; width:96px;top: 227px;" src="Images/wire3.svg" />
-			<img id="b5" title="Hammer" style="position: absolute;width:75px; left: 142px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			<img id="b55" title="Hammer" style="position: absolute;width:75px; left: 142px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			<img id="b555" title="Hammer" style="position: absolute;width:75px; left: 142px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			</p>
-</div>
-		</div>
+            <!--Step4	-->
+            <div class="simsubscreen" id="canvas3" style="visibility:hidden">
+                <strong id="titlestep" class="incanvas">STEP </strong>
+                <span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>
+                <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Place the graduated cylinder below the funnel.</p>
+                <br>
+                <br>
+                <img id="setup11" src="Images/setup1.png" style="position:absolute;top:275px;left:120px;"   width="115px">
+                <img id="beaker" title="Beaker" src="Images/beaker.png" style="position:absolute;top:335px;left:260px;"   width="80px">
+                <img id="beakerh" title="Beaker" src="Images/beakerh.png" style="position:absolute;top:325px;left:260px;visibility:hidden"   width="165px">
+                <img id="beakerh11" title="Beaker"  src="Images/beaker.png" style="position:absolute;top:330px;left:160px;visibility: hidden;"   width="85px">
+            </div>
 
-		<div class="simsubscreen" id="canvas3" style="visibility:hidden">
-			<strong id="titlestep" class="incanvas">STEP </strong>
-			<span class="circlebg" id="stepnumber">&nbsp;3&nbsp;</span>
-			<p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">connect the current
-				electrode to the positive side of the resistivity meter.</p>
-				<div style="position:absolute;left:30px;top:5px;">
+            <!--Step5	-->
+                <div class="simsubscreen" id="canvas4" style="visibility:hidden">
+                <strong id="titlestep" class="incanvas">STEP </strong>
+                <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>
+                <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Take a known amount of quantity of water (say 100 ml) and pour it slowly over the soil in the funnel.</p>
+                <img id="setup12" title="Stand" src="Images/setup1.png" style="position:absolute;top:275px;left:120px;visibility:hidden;"   width="115px">
+                <img id="setup2" title="Stand" src="Images/setup4.png" style="position:absolute;top:275px;left:120px;visibility:hidden;"   width="125px">
+                <img id="water" title="Water" src="Images/water.png" style="position:absolute;top:365px;left:350px;"   width="155px">
+                <img id="water1" title="Water" src="Images/water1.png" style="position: absolute; top: 135px; left: 185px; transform: rotate(0deg); visibility: hidden;" width="105px">
+                <img id="beakerh12" title="Beaker" src="Images/beaker.png" style="position:absolute;top:330px;left:160px;visibility: hidden;"   width="85px">
+                <br>
+                <br>
+            </div>
 
-			<img id="z6" style="position: absolute;width:585px; height:180px;left: 32px; top: 33px;" src="Images/soil.png">
-			<img id="b7" style="position: absolute;width:50px; left: 170px; top: 140px;" src="Images/pin11.png" />
-			<img id="a6" style="position: absolute;width:50px; left: 405px; top: 140px;" src="Images/pin11.png" />
-			<img id="c6" style="position: absolute; width: 50px; left: 549px; top: 130px;visibility: hidden;" src="Images/pin11.png">
-			<img id="c66" style="position: absolute; width: 50px; left: 549px; top: 130px;visibility: hidden" src="Images/pin11.png">
-			<img id="c666" style="position: absolute; width: 50px; left: 549px; top: 130px;visibility: hidden" src="Images/pin11.png">
-
-			<img id="z7" style="position: absolute;width:790px; height:280px;left: -85px; top: 210px;" src="Images/soil.png">
-			<img id="a2" title="Resistivity Meter" style="position: absolute; width:180px;left: 230px; top: 300px;"
-				src="Images/rs11.png" />
-			<img id="d23" style="position: absolute;left: 371px; width:181.5px;top: 230px;"
-				src="Images/wire4.svg">
-				<img id="a32"
-				style="position: absolute;left: 409px; width:22px;top: 197px;transform-origin: -30% 63%;transform:rotate(7deg);"
-				src="Images/wire2.svg" />
-			<img id="c23"
-				style="position: absolute; left: 552px; width: 25px; top: 190px; transform-origin: -18% 87%;"
-				src="Images/wire2.svg">
-				<img id="c32" style="position: absolute; left: 550px; width: 21px; top: 197px; transform-origin: -18% 87%; transform: rotate(8deg); visibility:hidden" src="Images/wire2.svg">
-			<img id="b25" style="position: absolute;left: 166px; width:96px;top: 227px;" src="Images/wire3.svg" />
-			<img id="b42" style="position: absolute; left: 167px; width: 22px; top: 193px; transform-origin: -20% 87%; transform: rotate(15deg); " src="Images/wire2.svg">
-
-			<img id="a22" style="position: absolute;left: 277px; top: 230.5px;"
-				src="Images/wire1.svg" />
-			<img id="c5" title="Hammer" style="position: absolute;width:75px; left: 522px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			<img id="c55" title="Hammer" style="position: absolute;width:75px; left: 522px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			<img id="c555" title="Hammer" style="position: absolute;width:75px; left: 522px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-		</div>
-		</div>
-
-		<div class="simsubscreen" id="canvas4" style="visibility:hidden">
-			<strong id="titlestep" class="incanvas">STEP </strong>
-			<span class="circlebg" id="stepnumber">&nbsp;4&nbsp;</span>
-			<p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">connect the current
-				electrode to the negative side of the resistivity meter.</p>
-				<div style="position:absolute;left:30px;top:5px;">
-
-			<img id="z6" style="position: absolute;width:585px; height:180px;left: 32px; top: 33px;" src="Images/soil.png">
-			<img id="a6" style="position: absolute;width:50px; left: 405px; top: 140px;" src="Images/pin11.png" />
-			<img id="b7" style="position: absolute;width:50px; left: 170px; top: 140px;" src="Images/pin11.png" />
-			<img id="c7" style="position: absolute;width:50px; left: 550px; top: 140px;" src="Images/pin11.png" />
-			<img id="d6" style="position: absolute;width:50px; left: 30px; top: 130px;visibility: hidden;" src="Images/pin11.png" />
-			<img id="d66" style="position: absolute;width:50px; left: 30px; top: 130px;visibility: hidden;" src="Images/pin11.png" />
-			<img id="d666" style="position: absolute;width:50px; left: 30px; top: 130px;visibility: hidden;" src="Images/pin11.png" />
-
-			<img id="z7" style="position: absolute;width:790px; height:280px;left: -85px; top: 210px;" src="Images/soil.png">
-			<img id="a2"  title="Resistivity Meter" style="position: absolute; width:180px;left: 230px; top: 300px;"
-				src="Images/rs11.png" />
-			<!-- <img id="c23"
-				style="position: absolute; left: 550px; width: 25px; top: 190px;  transform-origin: -18% 87%; transform: rotate(8deg);"
-				src="Images/wire2.svg"> -->
-				<img id="c32" style="position: absolute; left: 550px; width: 21px; top: 197px; transform-origin: -18% 87%; transform: rotate(8deg);" src="Images/wire2.svg">
-			<img id="c21"
-				style="position: absolute; left:28px; width: 25px; top: 184px; transform-origin: -18% 87%; transform: rotate(8deg);"
-				src="Images/wire2.svg">
-
-				<img id="c12" style="position: absolute; left: 28px; width: 20px; top: 193px; transform-origin: -18% 87%; transform: rotate(16deg); visibility:hidden;" src="Images/wire2.svg">
-				<img id="b42" style="position: absolute; left: 167px; width: 22px; top: 193px; transform-origin: -20% 87%; transform: rotate(15deg);" src="Images/wire2.svg">
-
-			<!-- <img id="d22"
-				style="position: absolute;left: 408px; width:24px;top: 193px;transform-origin: -30% 63%;transform:rotate(7deg)"
-				src="Images/wire2.svg"> -->
-					<img id="a32"
-				style="position: absolute;left: 409px; width:22px;top: 197px;transform-origin: -30% 63%;transform:rotate(7deg);"
-				src="Images/wire2.svg" />
-			<img id="a22" style="position: absolute;left: 277px; top: 230.5px;"
-				src="Images/wire1.svg" />
-
-			<img id="d5" style="position: absolute;width:75px; left:1px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			<img id="d55" style="position: absolute;width:75px; left:1px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-			<img id="d555" style="position: absolute;width:75px; left:1px; top: 107px;transform:rotate(-5deg);visibility: hidden;"
-				src="Images/Hammer11.png" />
-
-			<img id="b25" style="position: absolute;left: 166px; width:96px;top: 227px;" src="Images/wire3.svg" />
-			<img id="d27" style="position: absolute;left: 371px; width:181.5px;top: 230px;"
-				src="Images/wire4.svg">
-			<img id="d29" style="position: absolute;left: 25px; width:333px;top: 226px;" src="Images/wire5.svg">
-</div>
-		</div>
-		<div class="simsubscreen" id="canvas5" style="visibility:hidden">
-			<strong id="titlestep" class="incanvas">STEP </strong>
-			<span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>
-			<p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">connect the resistivity
-				meter to battery.</p>
-				<div style="position:absolute;left:30px;top:5px;">
-
-			<img id="z6" style="position: absolute;width:585px; height:180px;left: 32px; top: 33px;" src="Images/soil.png">
-			<img id="a6" style="position: absolute;width:50px; left: 405px; top: 140px;" src="Images/pin11.png" />
-			<img id="b7" style="position: absolute;width:50px; left: 170px; top: 140px;" src="Images/pin11.png" />
-			<img id="c7" style="position: absolute;width:50px; left: 550px; top: 140px;" src="Images/pin11.png" />
-			<img id="d7" style="position: absolute;width:50px; left: 30px; top: 140px;" src="Images/pin11.png" />
-			<img id="z7" style="position: absolute;width:790px; height:280px;left: -85px; top: 210px;" src="Images/soil.png">
-			<img id="a2" title="Resistivity Meter" style="position: absolute; width:180px;left: 230px; top: 300px;"
-				src="Images/rs11.png" />
-			<span id="v1" style="font-size:9px;position: absolute;top:316px;left:305px;"></span>
-			<span id="v2" style="font-size:9px;position: absolute;top:316px;left:305px;"></span>
-			<span id="v3" style="font-size:9px;position: absolute;top:316px;left:305px;"></span>
-
-			<img id="c32" style="position: absolute; left: 550px; width: 21px; top: 197px; transform-origin: -18% 87%; transform: rotate(8deg); " src="Images/wire2.svg">
-			<!-- <img id="c21"
-				style="position: absolute; left:27px; width: 25px; top: 185px; cursor: move; transform-origin: -18% 87%; transform: rotate(16deg);"
-				src="Images/wire2.svg"> -->
-				<img id="c12" style="position: absolute; left: 28px; width: 20px; top: 193px; transform-origin: -18% 87%; transform: rotate(16deg);" src="Images/wire2.svg">
-				<img id="b42" style="position: absolute; left: 167px; width: 22px; top: 193px; transform-origin: -20% 87%; transform: rotate(15deg); " src="Images/wire2.svg">
-
-			
-				<img id="a32"
-				style="position: absolute;left: 409px; width:22px;top: 197px;transform-origin: -30% 63%;transform:rotate(7deg);"
-				src="Images/wire2.svg" />
-			<img id="a22" style="position: absolute;left: 277px; top: 230.5px;"
-				src="Images/wire1.svg" />
-			<img id="b25" style="position: absolute;left: 166px; width:96px;top: 227px;" src="Images/wire3.svg" />
-			<img id="d27" style="position: absolute;left: 371px; width:181.5px;top: 230px;"
-				src="Images/wire4.svg">
-			<img id="d29" style="position: absolute;left: 25px; width:333px;top: 226px;" src="Images/wire5.svg">
-			<img id="d6" style="position: absolute;width:76.5px; left: 457px; top: 401px;"
-				src="Images/bwire1.svg" />
-
-			<img id="a6" style="position: absolute;width:180px; left: 455px; top: 280px;"
-				src="Images/Battery2.png" />
-			<img id="a7"
-				style="position: absolute;width:120px; left: 350px; top: 382px;transform-origin: -50% 30%;visibility: hidden;"
-				src="Images/pwire.svg" />
-			<img id="a8" style="position: absolute;width:25px; left: 290px; top: 420px;visibility: hidden;" src="Images/hand1.png" />
-			<img id="a88" style="position: absolute;width:25px; left: 290px; top: 420px;visibility: hidden;" src="Images/hand1.png" />
-			<img id="a888" style="position: absolute;width:25px; left: 290px; top: 420px;visibility: hidden;" src="Images/hand1.png" />
-			<img id="a9" style="position: absolute;width:107px; left: 364px; top: 319px;visibility:hidden;"
-				src="Images/pwire1.svg" />
-		</div>
-</div>
-		<div class="simsubscreen" id="canvas6" style="visibility:hidden;">
-			<strong class="incanvas" id="ob">
-				<h3>Observations: </h3>
-			</strong>
-			<table id="table2" border=1 style="text-align:center;border-collapse: collapse; font-size:14px;position:absolute; width:700px;left:-30px;visibility:hidden;">
-				<tr>
-					<td id="" style="padding:10px;">NO</td>
-					<td id="" style="padding:10px;">AB/2(m)</td>
-					<td id="" style="padding:10px;">MN/2(m)</td>
-					<td id="" style="padding:10px;">V(v)</td>
-					<td id="" style="padding:10px;">I(A)</td>
-					<td id="" style="padding:10px;">R(ohm)</td>
-					<td id="" style="padding: 10px;">K(m)</td>
-       				<td id="" style="padding:10px;width:90px">KR(ohm-m)</td>
-				</tr>
-				
-			</table>
-			<table id="table21" border=1 style="text-align:center; border-collapse: collapse; font-size:14px;width:112px;position:absolute;
-			top:23.4%;left:558px; visibility:hidden;">
-				
+            <div class="simsubscreen" id="canvas5" style="visibility:hidden">
+                <strong id="titlestep" class="incanvas">STEP </strong>
+                <span class="circlebg" id="stepnumber">&nbsp;5&nbsp;</span>
+                <p id="pumptext" class="steptext" style="font-family:verdana; font-size:14px;">Start the stopwatch.</p>
+                <table id="table2" border=1 style="text-align:center;border-collapse: collapse; font-size:14px;position:absolute; top:100px;width:380px;left:275px;visibility:hidden;">
+                    <tr>
+                        <td id="" >Time<br>(min)<br>(t)</td>
+                        <td id="" >Cylinder<br>Reading<br>(ml)(a)</td>
+                        <td id="" >Water <br>Collected<br>in 15 mins<br>(b)</td>
+                        <td id="" >Percolation <br>rate<br>(in ml/min)<br>(b/t)</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <!-- <td>0</td> -->
+                    </tr>
+                    
+                </table>
+                   <table id="table21" border=1 style="text-align:center; border-collapse: collapse; font-size:14px;width:123px;position:absolute;top:32.4%;left:533px; visibility:hidden;">
+				<tr><td>0</td></tr>
 				<tr>
 					<td id="r0" style="visibility: hidden;" >
 						<input id="o1" type="number" autocomplete="off"style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
 					</tr>
 						<button id="btn1"
-						style="position:absolute;left:92%;top:23.2%;visibility:hidden;">Check</button>
+						style="position:absolute;left:90%;top:35.9%;visibility:hidden;">Check</button>
 					<p id="rgt1"
-						style="position:absolute; left:86%; top:18.3%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:31%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
 					<p id="wng1"
-						style="position:absolute; left:86%; top:18.3%; color:red;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:31%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
-					
 				<tr>
 					<td id="r1"  style="visibility: hidden;">
 						<input id="o2" type="number" autocomplete="off"style="width:60px;position:absolute;left:10px;height:10px;"/> &nbsp;</td>
 					</tr>
 						<button id="btn2"
-						style="position:absolute;left:92%;top:27.4%;visibility:hidden;">Check</button>
+						style="position:absolute;left:92%;top:40%;visibility:hidden;">Check</button>
 					<p id="rgt2"
-						style="position:absolute; left:86%; top:22%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:35.3%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
 					<p id="wng2"
-						style="position:absolute; left:86%; top:22%; color:red;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:35.3%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
 					
 				<tr>
@@ -316,13 +169,13 @@
 						<input id="o3" type="number" autocomplete="off"style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
 					</tr>
 					<button id="btn3"
-						style="position:absolute;left:92%;top:31.2%;visibility:hidden;">Check</button>
+						style="position:absolute;left:92%;top:44%;visibility:hidden;">Check</button>
 					<p id="rgt3"
-						style="position:absolute; left:86%; top:25.6%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:39%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
 					<p id="wng3"
-						style="position:absolute; left:86%; top:25.6%; color:red;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:39%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
 				<tr>
 					<td id="r3"  style="visibility: hidden;">
@@ -330,643 +183,173 @@
 					</td>
 				</tr>
 						<button id="btn4"
-						style="position:absolute;left:92%;top:34.7%;visibility:hidden;">Check</button>
+						style="position:absolute;left:92%;top:47%;visibility:hidden;">Check</button>
 					<p id="rgt4"
-						style="position:absolute; left:86%; top:29.5%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:43%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
 					<p id="wng4"
-						style="position:absolute; left:86%; top:29.5%; color:red;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:43%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
-				<tr>
+				<tr></tr>
+                </table>
+                <div id="div1" style="visibility:hidden;position: absolute;top:450px;" class="input">
+                    <label>Average Perculation Rate of Sandy Soil=</label>
+                    <input id="output1" type="number" autocomplete="off"
+                        style="position:absolute;left:100%;top:1px;border:none; border-bottom: 1px solid; width:55px;"
+                        required>
+                    <span class="tooltip1" style="position:absolute;left:100%;top:-340%;width:70%;height:280%" >Average perculation Rate/ <br>Total numberof readings</span>
+                    <label style="position:absolute;left:125%;top:2px;">ohmm</label>
+                    <button id="button1"
+                        style="position:absolute;left:143%;top:1%;">Check</button>
+                    <p id="right1"
+                        style="position:absolute; left:120%; top:-170%; color:green;  visibility:hidden; font-size:22px;">
+                        &#10004;
+                    </p>
+                    <p id="wrong1"
+                        style="position:absolute; left:120%; top:-170%; color:red;  visibility:hidden; font-size:22px;">
+                        &#10008;</p>
+                    
+                </div>
 
+                <img id="setup21" title="Stand" src="Images/setup4.png" style="position: absolute; top: 125px; left: -45px; visibility: hidden;" width="195px">
+                <div id="drop-1"  style="position: absolute; left: 72px; top: 250px; width: 9px; height: 9.5px; border-radius: 50% 0px 50% 50%; transform: rotate(-45deg); background-color: lightskyblue; visibility: hidden;"></div>
+                <div id="drop-2" style="position: absolute; bottom:120px; left: 59px; width: 35px; height: 15px; border-radius: 15% 15% 46% 46%; background-color: lightskyblue; visibility: hidden;"></div>
+                <img id="swh1" title="Stopwatch" src="Images/swh1.png" style="position: absolute; top: 265px; left: 135px; visibility: hidden;" width="135px">
+                <img id="needle" src="Images/needle.png" style="position: absolute; top: 293px; left: 201px;transform-origin: 70% 94%; visibility: hidden;" width="3.5px;">
+               
 
-
-					
-					<td id="r4"  style="visibility: hidden;">
-						<input id="o5" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn5"
-						style="position:absolute;left:92%;top:38.3%;visibility:hidden;">Check</button>
-					<p id="rgt5"
-						style="position:absolute; left:86%; top:33.4%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng5"
-						style="position:absolute; left:86%; top:33.4%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
+                <table id="table3" border=1 style="text-align:center;border-collapse: collapse; font-size:14px;position:absolute; top:100px;width:380px;left:275px;visibility:hidden;">
+                    <tr>
+                        <td id="" >Time<br>(min)<br>(t)</td>
+                        <td id="" >Cylinder<br>Reading<br>(ml)(a)</td>
+                        <td id="" >Water <br>Collected<br>in 15 mins<br>(b)</td>
+                        <td id="" >Percolation <br>rate<br>(in ml/min)<br>(b/t)</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <!-- <td>0</td> -->
+                    </tr>
+                    
+                </table>
+                   <table id="table31" border=1 style="text-align:center; border-collapse: collapse; font-size:14px;width:123px;position:absolute;top:32.4%;left:533px; visibility:hidden;">
+				<tr><td>0</td></tr>
 				<tr>
-					<td id="r5"  style="visibility: hidden;">
-						<input id="o6" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn6"
-						style="position:absolute;left:92%;top:42.2%;visibility:hidden;">Check</button>
-					<p id="rgt6"
-						style="position:absolute; left:86%; top:37%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng6"
-						style="position:absolute; left:86%; top:37%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r6"  style="visibility: hidden;">
-						<input id="o7" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn7"
-						style="position:absolute;left:92%;top:46%;visibility:hidden;">Check</button>
-					<p id="rgt7"
-						style="position:absolute; left:86%; top:41%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng7"
-						style="position:absolute; left:86%; top:41%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r7"  style="visibility: hidden;">
-						<input id="o8" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn8"
-						style="position:absolute;left:92%;top:50%;visibility:hidden;">Check</button>
-					<p id="rgt8"
-						style="position:absolute; left:86%; top:45%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng8"
-						style="position:absolute; left:86%; top:45%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r8"  style="visibility: hidden;">
-						<input id="o9" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn9"
-						style="position:absolute;left:92%;top:53.9%;visibility:hidden;">Check</button>
-					<p id="rgt9"
-						style="position:absolute; left:86%; top:48.7%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng9"
-						style="position:absolute; left:86%; top:48.7%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r9"  style="visibility: hidden; ">
-						<input id="o10" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn10"
-						style="position:absolute;left:92%;top:57%;visibility:hidden;">Check</button>
-					<p id="rgt10"
-						style="position:absolute; left:86%; top:52%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng10"
-						style="position:absolute; left:86%; top:52%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r10"  style="visibility: hidden; " >
-						<input id="o11" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
+					<td id="q0" style="visibility: hidden;" >
+						<input id="o11" type="number" autocomplete="off"style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
+					</tr>
 						<button id="btn11"
-						style="position:absolute;left:92%;top:61%;visibility:hidden;">Check</button>
+						style="position:absolute;left:90%;top:35.9%;visibility:hidden;">Check</button>
 					<p id="rgt11"
-						style="position:absolute; left:86%; top:56%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:31%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
 					<p id="wng11"
-						style="position:absolute; left:86%; top:56%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r11"  style="visibility: hidden; ">
-						<input id="o12" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn12"
-						style="position:absolute;left:92%;top:65%;visibility:hidden;">Check</button>
-					<p id="rgt12"
-						style="position:absolute; left:86%; top:60%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng12"
-						style="position:absolute; left:86%; top:60%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r12"  style="visibility: hidden; ">
-						<input id="o13" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-					<button id="btn13"
-						style="position:absolute;left:92%;top:68.7%;visibility:hidden;">Check</button>
-					<p id="rgt13"
-						style="position:absolute; left:86%; top:63.4%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng13"
-						style="position:absolute; left:86%; top:63.4%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="r13"  style="visibility: hidden; ">
-						<input id="o14" type="number" autocomplete="off"  style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="btn14"
-						style="position:absolute;left:92%;top:72.7%;visibility:hidden;">Check</button>
-					<p id="rgt14"
-						style="position:absolute; left:86%; top:67%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wng14"
-						style="position:absolute; left:86%; top:67%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				</table>
-			<br>
-			<br>
-			<div id="div1" style="visibility:hidden;position: absolute;top:450px;" class="input">
-				<label>Mean Resistivity=</label>
-				<input id="output1" type="number" autocomplete="off"
-					style="position:absolute;left:100%;top:1px;border:none; border-bottom: 1px solid; width:55px;"
-					required>
-				<span class="tooltip1" style="position:absolute;left:100%;top:-150%;width:130%">K*R/Total
-					number</span>
-				<label style="position:absolute;left:165%;top:2px;">ohmm</label>
-				<button id="button1"
-					style="position:absolute;left:210%;top:1%;">Check</button>
-				<p id="right1"
-					style="position:absolute; left:149%; top:-170%; color:#b5c9b5;  visibility:hidden; font-size:22px;">
-					&#10004;
-				</p>
-				<p id="wrong1"
-					style="position:absolute; left:149%; top:-170%; color:red;  visibility:hidden; font-size:22px;">
-					&#10008;</p>
-				<p id='h2'
-					style="position:absolute;left:141%;top:-45%; color:red; font-family:verdana; font-size:13px;visibility:hidden;">
-				</p>
-			</div>
-			<!-- </br></br> -->
-
-			<table id="table3" border=1 style="text-align:center;border-collapse: collapse; font-size:14px; width:700px;position:absolute;top:86px; left:-30px;visibility:hidden;">
-				<tr>
-					<td id="" style="padding:10px;">NO</td>
-					<td id="" style="padding:10px;">AB/2(m)</td>
-					<td id="" style="padding:10px;">MN/2(m)</td>
-					<td id="" style="padding:10px;">R(ohm)</td>
-					<td id="" style="padding: 10px;">K(m)</td>
-					<td id="" style="padding:10px;width:90px">KR(ohm-m)</td>
-				</tr>
-			</table>
-			<table id="table31" border=1 style="text-align:center; border-collapse: collapse; font-size:14px;width:112px;position:absolute;
-			top:23.4%;left:558px; visibility:hidden;">
-				
-				<tr>
-					<td id="s0" style="visibility: hidden;" >
-						<input id="o21" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
-					</tr>
-						<button id="bt1"
-						style="position:absolute;left:92%;top:23.2%;visibility:hidden;">Check</button>
-					<p id="rg1"
-						style="position:absolute; left:86%; top:18.3%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn1"
-						style="position:absolute; left:86%; top:18.3%; color:red;  visibility:hidden; font-size:21px;">
+						style="position:absolute; left:83%; top:31%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
 					
 				<tr>
-					<td id="s1"  style="visibility: hidden;">
-						<input id="o22" type="number"autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;"/> &nbsp;</td>
+					<td id="q1"  style="visibility: hidden;">
+						<input id="o21" type="number" autocomplete="off"style="width:60px;position:absolute;left:10px;height:10px;"/> &nbsp;</td>
 					</tr>
-						<button id="bt2"
-						style="position:absolute;left:92%;top:27.4%;visibility:hidden;">Check</button>
-					<p id="rg2"
-						style="position:absolute; left:86%; top:22%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						<button id="btn21"
+						style="position:absolute;left:92%;top:40%;visibility:hidden;">Check</button>
+					<p id="rgt21"
+						style="position:absolute; left:83%; top:35.3%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
-					<p id="wn2"
-						style="position:absolute; left:86%; top:22%; color:red;  visibility:hidden; font-size:21px;">
+					<p id="wng21"
+						style="position:absolute; left:83%; top:35.3%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
 					
 				<tr>
-					<td id="s2"  style="visibility: hidden;" >
-						<input id="o33" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
+					<td id="q2"  style="visibility: hidden;" >
+						<input id="o31" type="number" autocomplete="off"style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
 					</tr>
-					<button id="bt3"
-						style="position:absolute;left:92%;top:31.2%;visibility:hidden;">Check</button>
-					<p id="rg3"
-						style="position:absolute; left:86%; top:25.6%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+					<button id="btn31"
+						style="position:absolute;left:92%;top:44%;visibility:hidden;">Check</button>
+					<p id="rgt31"
+						style="position:absolute; left:83%; top:39%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
-					<p id="wn3"
-						style="position:absolute; left:86%; top:25.6%; color:red;  visibility:hidden; font-size:21px;">
+					<p id="wng31"
+						style="position:absolute; left:83%; top:39%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
 				<tr>
-					<td id="s3"  style="visibility: hidden;">
-						<input id="o44" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
+					<td id="q3"  style="visibility: hidden;">
+						<input id="o41" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
 					</td>
 				</tr>
-						<button id="bt4"
-						style="position:absolute;left:92%;top:34.7%;visibility:hidden;">Check</button>
-					<p id="rg4"
-						style="position:absolute; left:86%; top:29.5%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
+						<button id="btn41"
+						style="position:absolute;left:92%;top:47%;visibility:hidden;">Check</button>
+					<p id="rgt41"
+						style="position:absolute; left:83%; top:43%; color:green;  visibility:hidden; font-size:21px;">
 						&#10004;
 					</p>
-					<p id="wn4"
-						style="position:absolute; left:86%; top:29.5%; color:red;  visibility:hidden; font-size:21px;">
+					<p id="wng41"
+						style="position:absolute; left:83%; top:43%; color:red;  visibility:hidden; font-size:21px;">
 						&#10008;</p>
-				<tr>
-					<td id="s4"  style="visibility: hidden;">
-						<input id="o55" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt5"
-						style="position:absolute;left:92%;top:38.3%;visibility:hidden;">Check</button>
-					<p id="rg5"
-						style="position:absolute; left:86%; top:33.4%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn5"
-						style="position:absolute; left:86%; top:33.4%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s5"  style="visibility: hidden;">
-						<input id="o66" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt6"
-						style="position:absolute;left:92%;top:42.2%;visibility:hidden;">Check</button>
-					<p id="rg6"
-						style="position:absolute; left:86%; top:37%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn6"
-						style="position:absolute; left:86%; top:37%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s6"  style="visibility: hidden;">
-						<input id="o77" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt7"
-						style="position:absolute;left:92%;top:46%;visibility:hidden;">Check</button>
-					<p id="rg7"
-						style="position:absolute; left:86%; top:41%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn7"
-						style="position:absolute; left:86%; top:41%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s7"  style="visibility: hidden;">
-						<input id="o88" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt8"
-						style="position:absolute;left:92%;top:50%;visibility:hidden;">Check</button>
-					<p id="rg8"
-						style="position:absolute; left:86%; top:45%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn8"
-						style="position:absolute; left:86%; top:45%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s8"  style="visibility: hidden;">
-						<input id="o99" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt9"
-						style="position:absolute;left:92%;top:53.9%;visibility:hidden;">Check</button>
-					<p id="rg9"
-						style="position:absolute; left:86%; top:48.7%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn9"
-						style="position:absolute; left:86%; top:48.7%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s9"  style="visibility: hidden; ">
-						<input id="o100" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt10"
-						style="position:absolute;left:92%;top:57%;visibility:hidden;">Check</button>
-					<p id="rg10"
-						style="position:absolute; left:86%; top:52%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn10"
-						style="position:absolute; left:86%; top:52%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s10"  style="visibility: hidden; " >
-						<input id="o111" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt11"
-						style="position:absolute;left:92%;top:61%;visibility:hidden;">Check</button>
-					<p id="rg11"
-						style="position:absolute; left:86%; top:56%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn11"
-						style="position:absolute; left:86%; top:56%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s11"  style="visibility: hidden; ">
-						<input id="o122" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt12"
-						style="position:absolute;left:92%;top:65%;visibility:hidden;">Check</button>
-					<p id="rg12"
-						style="position:absolute; left:86%; top:60%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn12"
-						style="position:absolute; left:86%; top:60%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s12"  style="visibility: hidden; ">
-						<input id="o133" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-					<button id="bt13"
-						style="position:absolute;left:92%;top:68.7%;visibility:hidden;">Check</button>
-					<p id="rg13"
-						style="position:absolute; left:86%; top:63.4%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn13"
-						style="position:absolute; left:86%; top:63.4%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="s13"  style="visibility: hidden; ">
-						<input id="o144" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bt14"
-						style="position:absolute;left:92%;top:72.7%;visibility:hidden;">Check</button>
-					<p id="rg14"
-						style="position:absolute; left:86%; top:67%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="wn14"
-						style="position:absolute; left:86%; top:67%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				</table>
-			<br>
-			<br>
-			<div id="div2" style="visibility:hidden;position: absolute;top:450px;" class="input">
-				<label>Mean Resistivity=</label>
-				<input id="output12" type="number" autocomplete="off"
-					style="position:absolute;left:100%;top:1px;border:none; border-bottom: 1px solid; width:55px;"
-					required>
-				<span class="tooltip1" style="position:absolute;left:100%;top:-90%;width:130%">K*R/Total
-					number</span>
-				<label style="position:absolute;left:165%;top:2px;">ohmm</label>
-				<button id="button12"
-					style="position:absolute;left:210%;top:1%;">Check</button>
-				<p id="right12"
-					style="position:absolute; left:149%; top:-90%; color:#b5c9b5;  visibility:hidden; font-size:22px;">
-					&#10004;
-				</p>
-				<p id="wrong12"
-					style="position:absolute; left:149%; top:-90%; color:red;  visibility:hidden; font-size:22px;">
-					&#10008;</p>
-				</p>
-			</div>
-			<!-- </br></br> -->
-			<table id="table4" border=1 style="text-align:center;border-collapse: collapse; font-size:14px; width:700px;position:absolute;top:86px; left:-30px;visibility:hidden;">
-				<tr>
-					<td id="" style="padding:10px;">NO</td>
-					<td id="" style="padding:10px;">AB/2(m)</td>
-					<td id="" style="padding:10px;">MN/2(m)</td>
-					<!-- <td id="" style="padding:10px;">V(v)</td>
-					<td id="" style="padding:10px;">I(A)</td> -->
-					<td id="" style="padding:10px;">R(ohm)</td>
-					<td id="" style="padding: 10px;">K(m)</td>
-					<td id="" style="padding:10px;width:90px">KR(ohm-m)</td>
-				</tr>
-			</table>
+				<tr></tr>
+                </table>
+                <div id="div2" style="visibility:hidden;position: absolute;top:450px;" class="input">
+                    <label>Average Perculation Rate of Sandy Soil=</label>
+                    <input id="output11" type="number" autocomplete="off"
+                        style="position:absolute;left:100%;top:1px;border:none; border-bottom: 1px solid; width:55px;"
+                        required>
+                    <span class="tooltip1" style="position:absolute;left:100%;top:-340%;width:70%;height:280%" >Average perculation Rate/ <br>Total numberof readings</span>
+                    <label style="position:absolute;left:125%;top:2px;">ohmm</label>
+                    <button id="button11"
+                        style="position:absolute;left:143%;top:1%;">Check</button>
+                    <p id="right11"
+                        style="position:absolute; left:120%; top:-170%; color:green;  visibility:hidden; font-size:22px;">
+                        &#10004;
+                    </p>
+                    <p id="wrong11"
+                        style="position:absolute; left:120%; top:-170%; color:red;  visibility:hidden; font-size:22px;">
+                        &#10008;</p>
+                   
+                </div>
 
-			<table id="table41" border=1 style="text-align:center; border-collapse: collapse; font-size:14px;width:112px;position:absolute;
-			top:23.4%;left:558px; visibility:hidden;">
-				
-				<tr>
-					<td id="t0" style="visibility: hidden;" >
-						<input id="ou21" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
-					</tr>
-						<button id="b1"
-						style="position:absolute;left:92%;top:23.2%;visibility:hidden;">Check</button>
-					<p id="g1"
-						style="position:absolute; left:86%; top:18.3%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w1"
-						style="position:absolute; left:86%; top:18.3%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-					
-				<tr>
-					<td id="t1"  style="visibility: hidden;">
-						<input id="ou22" type="number"autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;"/> &nbsp;</td>
-					</tr>
-						<button id="b2"
-						style="position:absolute;left:92%;top:27.4%;visibility:hidden;">Check</button>
-					<p id="g2"
-						style="position:absolute; left:86%; top:22%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w2"
-						style="position:absolute; left:86%; top:22%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-					
-				<tr>
-					<td id="t2"  style="visibility: hidden;" >
-						<input id="ou33" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;</td>
-					</tr>
-					<button id="b3"
-						style="position:absolute;left:92%;top:31.2%;visibility:hidden;">Check</button>
-					<p id="g3"
-						style="position:absolute; left:86%; top:25.6%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w3"
-						style="position:absolute; left:86%; top:25.6%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="t3"  style="visibility: hidden;">
-						<input id="ou44" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="b4"
-						style="position:absolute;left:92%;top:34.7%;visibility:hidden;">Check</button>
-					<p id="g4"
-						style="position:absolute; left:86%; top:29.5%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w4"
-						style="position:absolute; left:86%; top:29.5%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="t4"  style="visibility: hidden;">
-						<input id="ou55" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bn5"
-						style="position:absolute;left:92%;top:38.3%;visibility:hidden;">Check</button>
-					<p id="g5"
-						style="position:absolute; left:86%; top:33.4%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w5"
-						style="position:absolute; left:86%; top:33.4%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="t5"  style="visibility: hidden;">
-						<input id="ou66" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bn6"
-						style="position:absolute;left:92%;top:42.2%;visibility:hidden;">Check</button>
-					<p id="g6"
-						style="position:absolute; left:86%; top:37%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w6"
-						style="position:absolute; left:86%; top:37%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="t6"  style="visibility: hidden;">
-						<input id="ou77" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="bn7"
-						style="position:absolute;left:92%;top:46%;visibility:hidden;">Check</button>
-					<p id="g7"
-						style="position:absolute; left:86%; top:41%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w7"
-						style="position:absolute; left:86%; top:41%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="t7"  style="visibility: hidden;">
-						<input id="ou88" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="b8"
-						style="position:absolute;left:92%;top:50%;visibility:hidden;">Check</button>
-					<p id="g8"
-						style="position:absolute; left:86%; top:45%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w8"
-						style="position:absolute; left:86%; top:45%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				<tr>
-					<td id="t8"  style="visibility: hidden;">
-						<input id="ou99" type="number" autocomplete="off" style="width:60px;position:absolute;left:10px;height:10px;" />&nbsp;
-					</td>
-				</tr>
-						<button id="b9"
-						style="position:absolute;left:92%;top:53.9%;visibility:hidden;">Check</button>
-					<p id="g9"
-						style="position:absolute; left:86%; top:48.7%; color:#b5c9b5;  visibility:hidden; font-size:21px;">
-						&#10004;
-					</p>
-					<p id="w9"
-						style="position:absolute; left:86%; top:48.7%; color:red;  visibility:hidden; font-size:21px;">
-						&#10008;</p>
-				</table>
-			<br>
-			<br>
-			<div id="div3" style="visibility:hidden;position: absolute;top:350px;" class="input">
-				<label>Mean Resistivity=</label>
-				<input id="output11" type="number" autocomplete="off"
-					style="position:absolute;left:100%;top:1px;border:none; border-bottom: 1px solid; width:55px;"
-					required>
-				<span class="tooltip1" style="position:absolute;left:100%;top:-90%;width:130%">K*R/Total
-					number</span>
-				<label style="position:absolute;left:165%;top:2px;">ohmm</label>
-				<button id="button11"
-					style="position:absolute;left:210%;top:1%;">Check</button>
-				<p id="right11"
-					style="position:absolute; left:149%; top:-90%; color:#b5c9b5;  visibility:hidden; font-size:22px;">
-					&#10004;
-				</p>
-				<p id="wrong11"
-					style="position:absolute; left:149%; top:-90%; color:red;  visibility:hidden; font-size:22px;">
-					&#10008;</p>
-				</p>
-			</div>
-		</div>
+                <img id="setup22" title="Stand" src="Images/setup4.png" style="position: absolute; top: 125px; left: -45px; visibility: hidden;" width="195px">
+                <div id="drop-12" style="position: absolute; left: 72px; top: 250px; width: 9px; height: 9.5px; border-radius: 50% 0px 50% 50%; transform: rotate(-45deg); background-color: lightskyblue; visibility: hidden;"></div>
+                <div id="drop-22" style="position: absolute; bottom:120px; left: 59px; width: 35px; height: 15px; border-radius: 15% 15% 46% 46%; background-color: lightskyblue; visibility: hidden;"></div>
+                <img id="swh11" title="Stopwatch" src="Images/swh1.png" style="position: absolute; top: 265px; left: 135px; visibility: hidden;" width="135px">
+                <img id="needle1" src="Images/needle.png" style="position: absolute; top: 293px; left: 201px;transform-origin: 70% 94%; visibility: hidden;" width="3.5px;">
+            </div>
+          
+            <div class="simsubscreen" id="canvas6" style="visibility:hidden;">
+                <strong class="incanvas" id="ob">
+                    <h3>
+                        Result: 
+                    </h3>
+                </strong>
+                <p id="l1" style="font-size:14px;position:absolute;top:70px;visibility:hidden;">1. Average percolation rate of the soil is for Sandy soil= 1.65 mL/min.</p>
+                <p id="l2" style="font-size:14px;position:absolute;top:70px;visibility:hidden;">1. Average percolation rate of the soil is for Silty soil= 0.72 mL/min</p>
+             </div>
 
+        <div id="questDiv" style="position:absolute; font-size: 14px; background-color:grey; color:white; padding:7.5px; border-radius:5px; visibility:hidden; text-align:justify; z-index: 200;">
+            <p id="q"></p>
+            <select id="answer">
+            </select>
+            <p id="a"></p>
+        </div> 
 
-		<div class="simsubscreen" id="canvas7" style="visibility:hidden;">
-			<strong class="incanvas" id="ob">
-				<h3>
-					Result: </h3>
-			</strong>
-			<p id="l1" style="font-size:14px;position:absolute;top:70px;visibility:hidden;">1.From the IS code, the apparent resistivity falls in the range of
-				<select name="type" onmousedown="this.value='';" onchange="jsFunction(this.value);">
-					<option value='Alluvium'>Alluvium</option>
-					<option value='Granite'>Granite</option>
-					<option value='Slate'>Slate</option>
-				    </select>
-				</p>
+        <!--Trial text	-->
+        <div id="">
+            <p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
+        </div>
 
-			<p id="l2" style="font-size:14px;position:absolute;top:70px;visibility:hidden;">
-			1.From the IS code, the apparent resistivity falls in the range of
-					<select name="type" onmousedown="this.value='';" onchange="jsFunction1(this.value);">
-						<option value='Alluvium'>Alluvium</option>
-						<option value='Basalt'>Basalt</option>
-						<option value='Slate'>Slate</option>
-					    </select>
-					</p>
+        <!--next  Arrow	-->
+        <div id="nav">
+            <img id="nextButton" onclick="navNext(); " src="images/Next.png" />
+        </div>
 
-				<p id="right21"
-					style="position:absolute; left:73%; top:13%; color:black;visibility: hidden ; font-size:14px;">
-					Right Answer
-				</p>
-				<p id="wrong21"
-					style="position:absolute; left:73%; top:13%; color:black; visibility: hidden;   font-size:14px;">
-					Wrong Answer</p>
-				</p>
-			</br></br>
-		</div>
+        <!--Blinking Arrow	-->
+        <img class="" id="arrow1" style="visibility:hidden" src="images/arrow1.png" />
 
-		<!--Trial text	-->
-		<div id="">
-			<p id="trial"
-				style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; ">
-				<strong>Trial = </strong>
-			</p>
-		</div>
+        <div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
 
-		<div id="questDiv"
-		style="position:absolute; background-color:grey; color:white; padding:7.5px; border-radius:5px; visibility:hidden; text-align:justify;">
-		<p id="q"></p><select id="answer">
-		</select>
-		<p id="a"></p>
-	    </div>
-
-		<div id="">	
-			<p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; "><strong>Trial = </strong></p>
-			</div>
-
-		<!--next  Arrow	-->
-		<div id="nav">
-			<img id="nextButton" onclick="navNext(); " src="Images/Next.png" />
-		</div>
-
-		<!--Blinking Arrow	-->
-		<img class="" id="arrow1" style="visibility:hidden" src="Images/arrow1.png" />
-
-		<div id="copyright"> &copy; 2020 SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources &
-			Ocean Engineering</div>
-</body>
-
+    </body>
 </html>
