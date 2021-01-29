@@ -51,7 +51,7 @@ var questions = ["Which instrument is used for putting soil into the cone?",
 
 var options2 = [
     ["Spatula","Conical flask","Spoon","Pipette"],
-    ["After first reading", "Inserting cone into cone stand", "Putting water onto the soil", "Putting soil on the cone"],
+    ["first reading", "Inserting cone into cone stand", "Putting water onto the soil", "Putting soil on the cone"],
 ];
 
 function validateAnswer(qn, ans, left, top) {
